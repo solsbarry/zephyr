@@ -88,6 +88,17 @@ config USB_DEVICE_BOS
 config USB_DEVICE_OS_DESC
 	bool "Enable MS OS Descriptors support"
 
+config USB_SELF_POWERED
+    bool "Set the power parameters for the usb configuration descriptor to indicate self powered"
+    default y
+    
+config USB_MAX_POWER
+    int "Set the max power in the usb configuration descriptor"
+    default 50
+    range 0 255
+    help
+      The result is 2mA times the vlaue provided.
+
 menuconfig USB_VBUS_GPIO
 	bool "Control VBUS via GPIO pin"
 	depends on GPIO
